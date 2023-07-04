@@ -13,22 +13,26 @@
     
     <!--- Seo Part-->
     
-    <link rel="canonical" href="https://alexcslee.github.io/alexleeblog/2023/07/01/my-first-post/"/>
+    <link rel="canonical" href="https://alexcslee.github.io/alexleeblog/2023/07/03/238-leetcode/"/>
     <meta name="robots" content="index,follow">
     <meta name="googlebot" content="index,follow">
     <meta name="revisit-after" content="1 days">
     
-        <meta name="description" content="Hello world?  It is my first time writing a blog.Honestly, I have no idea how to do and start it, I’m not a good author I guess.But I need to record those things that I learned systemically and improv">
+        <meta name="description" content="題目說明：給定一組整數的數組nums，傳回answer，answer[i] 的值要等於所有nums值的總乘 (除了nums[i]自己外)。 1. 暴力破解；2. 左右兩段雙乘方法 (原版+優化版)；3. prefix 或suffix思路">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Let&#39;s get started!">
-<meta property="og:url" content="https://alexcslee.github.io/alexleeblog/2023/07/01/my-first-post/index.html">
+<meta property="og:title" content="Leetcode 238. Product of Array Except Self">
+<meta property="og:url" content="https://alexcslee.github.io/alexleeblog/2023/07/03/238-leetcode/index.html">
 <meta property="og:site_name" content="Alex Lee&#39;s blog">
-<meta property="og:description" content="Hello world?  It is my first time writing a blog.Honestly, I have no idea how to do and start it, I’m not a good author I guess.But I need to record those things that I learned systemically and improv">
+<meta property="og:description" content="題目說明：給定一組整數的數組nums，傳回answer，answer[i] 的值要等於所有nums值的總乘 (除了nums[i]自己外)。 1. 暴力破解；2. 左右兩段雙乘方法 (原版+優化版)；3. prefix 或suffix思路">
 <meta property="og:locale" content="en_US">
-<meta property="article:published_time" content="2023-07-01T02:28:50.000Z">
-<meta property="article:modified_time" content="2023-07-02T13:39:40.000Z">
+<meta property="article:published_time" content="2023-07-02T16:22:30.000Z">
+<meta property="article:modified_time" content="2023-07-04T09:00:05.765Z">
 <meta property="article:author" content="Alex Lee">
-<meta property="article:tag" content="journal">
+<meta property="article:tag" content="leetcode">
+<meta property="article:tag" content="array">
+<meta property="article:tag" content="prefix Sum">
+<meta property="article:tag" content="caches">
+<meta property="article:tag" content="memoization">
 <meta name="twitter:card" content="summary">
     
     
@@ -41,7 +45,7 @@
     
     <title>
         
-            Let&#39;s get started! -
+            Leetcode 238. Product of Array Except Self -
         
         Alex Lee&#39;s Blog
     </title>
@@ -372,7 +376,7 @@
             
             
                 <div class="article-title">
-                    <h1 class="article-title-regular">Let&#39;s get started!</h1>
+                    <h1 class="article-title-regular">Leetcode 238. Product of Array Except Self</h1>
                 </div>
             
                 
@@ -392,15 +396,15 @@
                             <div class="article-meta-info">
     <span class="article-date article-meta-item">
         <i class="fa-regular fa-pen-fancy"></i>&nbsp;
-        <span class="desktop">2023-07-01 10:28:50</span>
-        <span class="mobile">2023-07-01 10:28</span>
+        <span class="desktop">2023-07-03 00:22:30</span>
+        <span class="mobile">2023-07-03 00:22</span>
         <span class="hover-info">Created</span>
     </span>
     
         <span class="article-date article-meta-item">
             <i class="fa-regular fa-wrench"></i>&nbsp;
-            <span class="desktop">2023-07-02 21:39:40</span>
-            <span class="mobile">2023-07-02 21:39</span>
+            <span class="desktop">2023-07-04 17:05</span>
+            <span class="mobile">2023-07-04 17</span>
             <span class="hover-info">Updated</span>
         </span>
     
@@ -411,7 +415,7 @@
             <ul>
                 
                     <li>
-                        <a href="/alexleeblog/categories/journal/">journal</a>&nbsp;
+                        <a href="/alexleeblog/categories/leetcode/">leetcode</a>&nbsp;
                     </li>
                 
             </ul>
@@ -423,7 +427,23 @@
             <ul>
                 
                     <li>
-                        <a href="/alexleeblog/tags/journal/">journal</a>&nbsp;
+                        <a href="/alexleeblog/tags/leetcode/">leetcode</a>&nbsp;
+                    </li>
+                
+                    <li>
+                        | <a href="/alexleeblog/tags/array/">array</a>&nbsp;
+                    </li>
+                
+                    <li>
+                        | <a href="/alexleeblog/tags/prefix-Sum/">prefix Sum</a>&nbsp;
+                    </li>
+                
+                    <li>
+                        | <a href="/alexleeblog/tags/caches/">caches</a>&nbsp;
+                    </li>
+                
+                    <li>
+                        | <a href="/alexleeblog/tags/memoization/">memoization</a>&nbsp;
                     </li>
                 
             </ul>
@@ -446,28 +466,105 @@
             
 
             <div class="article-content markdown-body">
-                <p>Hello world? </p>
-<p>It is my first time writing a blog.<br>Honestly, I have no idea how to do and start it, I’m not a good author I guess.<br>But I need to record those things that I learned systemically and improve my programming skill effectively. </p>
-<p>That’s why I start this blog, hoping it can take me further in my career. </p>
-<h4 id="What-I’m-focusing-on"><a href="#What-I’m-focusing-on" class="headerlink" title="What I’m focusing on?"></a>What I’m focusing on?</h4><p>Now I’m working on Tensorflow with Python, my ultimate goal is to create an AI chatbot website for specific situation.<br>So people can access datas much easier and faster than google search it. </p>
-<h4 id="What-is-it-about-on-this-blog"><a href="#What-is-it-about-on-this-blog" class="headerlink" title="What is it about on this blog?"></a>What is it about on this blog?</h4><p>I will record my learning process, including Leetcode algorithm training (mostly), Tensorflow learning, HTML&#x2F;CSS studying, everything that I learned and want to share on this website. </p>
+                <h3 id="題目說明："><a href="#題目說明：" class="headerlink" title="題目說明："></a>題目說明：</h3><pre>
+給定一組整數的數組nums，傳回answer。
+answer[i] 的值要等於所有nums值的總乘 (除了nums[i]自己外)
+</pre>
+<h5 id="邊界條件："><a href="#邊界條件：" class="headerlink" title="邊界條件："></a>邊界條件：</h5><pre>
+nums 的 prefix 或suffix範圍都在32bit整數內
+2 <= nums.length <= 105
+-30 <= nums[i] <= 30
+</pre>
+<h5 id="題目要求："><a href="#題目要求：" class="headerlink" title="題目要求："></a>題目要求：</h5><pre>
+條件必須在O(n) 時間複雜度，以及不能使用除法符號
+Follow up:  嘗試在O(1)空間複雜度完成題目
 
+Leetcode 範例1：
+Input: nums = [1, 2, 3, 4]
+Output: [24, 12, 8, 6]
+
+Leetcode 範例2：
+Input: nums = [-1, 1, 0, -3, 3]
+Output: [0, 0, 9, 0, 0]
+</pre>
+<h3 id="題目圖說："><a href="#題目圖說：" class="headerlink" title="題目圖說："></a>題目圖說：</h3><pre>
+以範例1 為例，
+answer[0] = ~~nums[0]~~ * nums[1] * nums[2] * nums[3] = 2*3*4 = 24
+answer[1] = nums[0] * ~~nums[1]~~ * nums[2] * nums[3] = 1*3*4 = 12
+answer[2] = nums[0] * nums[1] * ~~nums[2]~~ * nums[3] = 1*2*4 = 8
+answer[3] = nums[0] * nums[1] * nums[2] * ~~nums[3]~~ = 1*2*3 = 6
+
+得出 answer = [24, 12, 8, 6]
+</pre>
+
+<h3 id="題目思路："><a href="#題目思路：" class="headerlink" title="題目思路："></a>題目思路：</h3><ol>
+<li>暴力破解</li>
+<li>左右兩段雙乘方法 (原版+優化版)</li>
+<li>prefix 或suffix思路</li>
+</ol>
+<h5 id="1-暴力破解"><a href="#1-暴力破解" class="headerlink" title="1. 暴力破解"></a>1. 暴力破解</h5><pre>
+比較直接把 nums 的每一個值都歷遍一次，每一次都把其他所有的值乘起來 (除自身外的值)，然後加在新的陣列Array上。
+時間複雜度：
+因為此方法把整組nums都跑一次，每次總乘所有值都再歷遍所有值，所以時間複雜度是 O(n^2)；
+空間複雜度：
+因為需要建立一組新的陣列儲存結果，空間複雜度是 O(n)。
+</pre>
+<div class="highlight-container" data-rel="Python"><figure class="iseeu highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">def</span> <span class="title function_">productExceptSelf</span>(<span class="params">self, nums: <span class="type">List</span>[<span class="built_in">int</span>]</span>) -&gt; <span class="type">List</span>[<span class="built_in">int</span>]:</span><br><span class="line">    n = <span class="built_in">len</span>(nums)</span><br><span class="line">    answer = [<span class="number">1</span>] * n <span class="comment">#this will hold our output</span></span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">0</span>, n):</span><br><span class="line">        <span class="keyword">for</span> j <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">0</span>, n):</span><br><span class="line">            <span class="keyword">if</span> i != j:</span><br><span class="line">                answer[i] = answer[i] * nums[j]   </span><br><span class="line">    <span class="keyword">return</span> answer    </span><br></pre></td></tr></table></figure></div>
+<h5 id="2a-左右兩段雙乘方法"><a href="#2a-左右兩段雙乘方法" class="headerlink" title="2a. 左右兩段雙乘方法"></a>2a. 左右兩段雙乘方法</h5><pre>
+建立2個由0組成、長度與nums相同的數組，並設定L[0] = 1, R[len(nums)-1] = 1
+L = [1, 0, 0, 0] 第1組(L)把nums[0]至nums[2]向左相乘，每次相乘後儲存在 L[i] 中
+R = [0, 0, 0, 1] 第2組(R)把nums[3]至nums[1]向右相乘，每次相乘後儲存在 R[i] 中
+
+得出，
+L = [1,  1,  2, 6]
+R = [24, 12, 4, 1]
+最後把兩組數列的值上下對應相乘，即可得出 answer [24, 12, 8, 6]
+
+因為只需要歷遍nums 總2次，第一次歷遍L，第二次歷遍R，時間複雜度為O(2N) => O(N)。
+但最後建立一組answer的數組，空間複雜度為 O(N)。
+</pre>
+<div class="highlight-container" data-rel="Python"><figure class="iseeu highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span>:</span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">productExceptSelf</span>(<span class="params">self, nums: <span class="type">List</span>[<span class="built_in">int</span>]</span>) -&gt; <span class="type">List</span>[<span class="built_in">int</span>]:</span><br><span class="line"></span><br><span class="line">        length = <span class="built_in">len</span>(nums)</span><br><span class="line"></span><br><span class="line">        L = [<span class="number">0</span>] * length</span><br><span class="line">        R = [<span class="number">0</span>] * length</span><br><span class="line">        answer = [<span class="number">0</span>] * length</span><br><span class="line"></span><br><span class="line">        L[<span class="number">0</span>] = <span class="number">1</span></span><br><span class="line">        <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">1</span>, length):</span><br><span class="line">            L[i] = nums[i-<span class="number">1</span>] * L[i-<span class="number">1</span>]</span><br><span class="line"></span><br><span class="line">        R[length-<span class="number">1</span>] = <span class="number">1</span></span><br><span class="line">        <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">reversed</span>(<span class="built_in">range</span>(length - <span class="number">1</span>)):</span><br><span class="line">            R[i] = nums[i+<span class="number">1</span>] * R[i+<span class="number">1</span>]</span><br><span class="line"></span><br><span class="line">        <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(length):</span><br><span class="line">            answer[i] = L[i] * R[i]</span><br><span class="line"></span><br><span class="line">        <span class="keyword">return</span> answer</span><br><span class="line">        <span class="comment">#TC: O(N); SC: O(N)</span></span><br></pre></td></tr></table></figure></div>
+<h5 id="2b-左右兩段雙乘方法-Caches儲存-gt-SC優化"><a href="#2b-左右兩段雙乘方法-Caches儲存-gt-SC優化" class="headerlink" title="2b. 左右兩段雙乘方法 + Caches儲存 -&gt; SC優化"></a>2b. 左右兩段雙乘方法 + Caches儲存 -&gt; SC優化</h5><pre>
+SC優化版是省略建立L、R數組，直接在 answer 中相乘，
+因為只在 answer數組中運算，空間複雜間只有O(1)。
+
+answer = [0, 0, 0, 0]
+answer = [1, 0, 0, 0]
+把nums[0]至nums[2]向左相乘，每次相乘後儲存在 answer[i] 中得出，
+answer = [1, 1, 2, 6]
+然後再把nums[3]至nums[1]向右相乘，每次相乘後儲存在 R 中
+R = 1 ,          answer = [1, 1, 2, 6*1] = [1, 1, 2, 6]
+R = 1*4 = 4 ,    answer = [1, 1, 2*4, 6] = [1, 1, 8, 6]
+R = 4*3 = 12 ,   answer = [1, 1*12, 8, 6] = [1, 12, 8, 6]
+R = 12*2 = 24 ,  answer = [1*24, 1, 8, 6] = [24, 12, 8, 6]
+</pre>
+
+<div class="highlight-container" data-rel="Python"><figure class="iseeu highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># optimized</span></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">productExceptSelf</span>(<span class="params">self, nums: <span class="type">List</span>[<span class="built_in">int</span>]</span>) -&gt; <span class="type">List</span>[<span class="built_in">int</span>]:</span><br><span class="line"></span><br><span class="line">    length = <span class="built_in">len</span>(nums)</span><br><span class="line">    answer = [<span class="number">0</span>] * length</span><br><span class="line"></span><br><span class="line">    answer[<span class="number">0</span>] = <span class="number">1</span></span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">1</span>, length):</span><br><span class="line">        answer[i] = nums[i-<span class="number">1</span>] * answer[i-<span class="number">1</span>]</span><br><span class="line"></span><br><span class="line">    R = <span class="number">1</span></span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">reversed</span>(<span class="built_in">range</span>(length - <span class="number">1</span>)):</span><br><span class="line">        answer[i] = answer[i] * R</span><br><span class="line">        R = R* nums[i]</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> answer</span><br><span class="line">    <span class="comment">#TC: O(N), SC: O(1)</span></span><br></pre></td></tr></table></figure></div>
+<h5 id="3-Prefix、Postfix-思路"><a href="#3-Prefix、Postfix-思路" class="headerlink" title="3. Prefix、Postfix 思路"></a>3. Prefix、Postfix 思路</h5><p>方法與左右兩段雙乘方法 + Caches儲存，但是L, R即使用prefix, postfix 表示。</p>
+<pre>
+prefix:
+    | 1         | a     | a * b | a * b * c |
+postfix:
+    | b * c * d | c * d | d     | 1         |
+</pre>
+
+<div class="highlight-container" data-rel="Python"><figure class="iseeu highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># Prefix, postfix method</span></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">productExceptSelf</span>(<span class="params">self, nums: <span class="type">List</span>[<span class="built_in">int</span>]</span>) -&gt; <span class="type">List</span>[<span class="built_in">int</span>]:</span><br><span class="line">    res = [<span class="number">1</span>] * <span class="built_in">len</span>(nums)</span><br><span class="line"></span><br><span class="line">    prefix = <span class="number">1</span></span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="built_in">len</span>(nums)):</span><br><span class="line">        res[i] = prefix</span><br><span class="line">        prefix = prefix * nums[i]</span><br><span class="line"></span><br><span class="line">    postfix = <span class="number">1</span></span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">reversed</span>(<span class="built_in">range</span>(<span class="built_in">len</span>(nums)):</span><br><span class="line">        res[i] = res[i] * postfix</span><br><span class="line">        postfix = postfix * nums[i]</span><br><span class="line">        </span><br><span class="line">    <span class="keyword">return</span> res</span><br><span class="line">    <span class="comment">#TC: O(N), SC: O(1)</span></span><br></pre></td></tr></table></figure></div>
             </div>
 
             
                 <div class="post-copyright-info">
                     <div class="article-copyright-info-container">
     <ul>
-        <li><strong>Title:</strong> Let&#39;s get started!</li>
+        <li><strong>Title:</strong> Leetcode 238. Product of Array Except Self</li>
         <li><strong>Author:</strong> Alex Lee</li>
-        <li><strong>Created at:</strong> 2023-07-01 10:28:50</li>
+        <li><strong>Created at:</strong> 2023-07-03 00:22:30</li>
         
             <li>
-                <strong>Updated at:</strong> 2023-07-02 21:39:40
+                <strong>Updated at:</strong> 2023-07-04 17:00:05
             </li>
         
         <li>
-            <strong>Link:</strong> https://alexcslee.github.io/alexleeblog/2023/07/01/my-first-post/
+            <strong>Link:</strong> https://alexcslee.github.io/alexleeblog/2023/07/03/238-leetcode/
         </li>
         <li>
             <strong>License:</strong> This work is licensed under <a class="license" target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">CC BY-NC-SA 4.0</a>.
@@ -482,7 +579,23 @@
                 <ul class="post-tags-box">
                     
                         <li class="tag-item">
-                            <a href="/alexleeblog/tags/journal/">#journal</a>&nbsp;
+                            <a href="/alexleeblog/tags/leetcode/">#leetcode</a>&nbsp;
+                        </li>
+                    
+                        <li class="tag-item">
+                            <a href="/alexleeblog/tags/array/">#array</a>&nbsp;
+                        </li>
+                    
+                        <li class="tag-item">
+                            <a href="/alexleeblog/tags/prefix-Sum/">#prefix Sum</a>&nbsp;
+                        </li>
+                    
+                        <li class="tag-item">
+                            <a href="/alexleeblog/tags/caches/">#caches</a>&nbsp;
+                        </li>
+                    
+                        <li class="tag-item">
+                            <a href="/alexleeblog/tags/memoization/">#memoization</a>&nbsp;
                         </li>
                     
                 </ul>
@@ -494,18 +607,18 @@
     <div class="recommended-article-header">
      <i aria-hidden="true"></i><span>推薦閱讀</span>
     </div>
-    <div class="recommended-article-group"><a class="recommended-article-item" href="/alexleeblog/2023/07/03/238-leetcode/" title="Leetcode 238. Product of Array Except Self" rel="bookmark">
-  <img src="/alexleeblog/images/wallhaven-wqery6-dark.webp" alt="Leetcode 238. Product of Array Except Self">
-  <span class="title">Leetcode 238. Product of Array Except Self</span>
+    <div class="recommended-article-group"><a class="recommended-article-item" href="/alexleeblog/2023/07/01/my-first-post/" title="Let's get started!" rel="bookmark">
+  <img src="/alexleeblog/images/wallhaven-wqery6-dark.webp" alt="Let's get started!">
+  <span class="title">Let's get started!</span>
 </a></div>
    </div>
    <div class="recommended-mobile">
    <div class="recommended-article-header">
      <i aria-hidden="true"></i><span>推薦閱讀</span>
    </div>
-   <div class="recommended-article-group"><a class="recommended-article-item" href="/alexleeblog/2023/07/03/238-leetcode/" title="Leetcode 238. Product of Array Except Self" rel="bookmark">
-  <img src="/alexleeblog/images/wallhaven-wqery6-dark.webp" alt="Leetcode 238. Product of Array Except Self">
-  <span class="title">Leetcode 238. Product of Array Except Self</span>
+   <div class="recommended-article-group"><a class="recommended-article-item" href="/alexleeblog/2023/07/01/my-first-post/" title="Let's get started!" rel="bookmark">
+  <img src="/alexleeblog/images/wallhaven-wqery6-dark.webp" alt="Let's get started!">
+  <span class="title">Let's get started!</span>
 </a></div>
    </div>
   </div>
@@ -513,21 +626,21 @@
             
                 <div class="article-nav">
                     
-                        <div class="article-prev">
-                            <a class="prev"
-                            rel="prev"
-                            href="/alexleeblog/2023/07/03/238-leetcode/"
+                    
+                        <div class="article-next">
+                            <a class="next"
+                            rel="next"
+                            href="/alexleeblog/2023/07/01/my-first-post/"
                             >
-                                <span class="left arrow-icon flex-center">
-                                    <i class="fa-solid fa-chevron-left"></i>
-                                </span>
                                 <span class="title flex-center">
-                                    <span class="post-nav-title-item">Leetcode 238. Product of Array Except Self</span>
-                                    <span class="post-nav-item">Prev posts</span>
+                                    <span class="post-nav-title-item">Let&#39;s get started!</span>
+                                    <span class="post-nav-item">Next posts</span>
+                                </span>
+                                <span class="right arrow-icon flex-center">
+                                    <i class="fa-solid fa-chevron-right"></i>
                                 </span>
                             </a>
                         </div>
-                    
                     
                 </div>
             
@@ -541,8 +654,8 @@
                 <div class="post-toc-wrap">
     <div class="post-toc">
         <div class="toc-title">On this page</div>
-        <div class="page-title">Let&#39;s get started!</div>
-        <ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#What-I%E2%80%99m-focusing-on"><span class="nav-text">What I’m focusing on?</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#What-is-it-about-on-this-blog"><span class="nav-text">What is it about on this blog?</span></a></li></ol>
+        <div class="page-title">Leetcode 238. Product of Array Except Self</div>
+        <ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%A1%8C%E7%9B%AE%E8%AA%AA%E6%98%8E%EF%BC%9A"><span class="nav-text">題目說明：</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#%E9%82%8A%E7%95%8C%E6%A2%9D%E4%BB%B6%EF%BC%9A"><span class="nav-text">邊界條件：</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E9%A1%8C%E7%9B%AE%E8%A6%81%E6%B1%82%EF%BC%9A"><span class="nav-text">題目要求：</span></a></li></ol></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%A1%8C%E7%9B%AE%E5%9C%96%E8%AA%AA%EF%BC%9A"><span class="nav-text">題目圖說：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%A1%8C%E7%9B%AE%E6%80%9D%E8%B7%AF%EF%BC%9A"><span class="nav-text">題目思路：</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#1-%E6%9A%B4%E5%8A%9B%E7%A0%B4%E8%A7%A3"><span class="nav-text">1. 暴力破解</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#2a-%E5%B7%A6%E5%8F%B3%E5%85%A9%E6%AE%B5%E9%9B%99%E4%B9%98%E6%96%B9%E6%B3%95"><span class="nav-text">2a. 左右兩段雙乘方法</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#2b-%E5%B7%A6%E5%8F%B3%E5%85%A9%E6%AE%B5%E9%9B%99%E4%B9%98%E6%96%B9%E6%B3%95-Caches%E5%84%B2%E5%AD%98-gt-SC%E5%84%AA%E5%8C%96"><span class="nav-text">2b. 左右兩段雙乘方法 + Caches儲存 -&gt; SC優化</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#3-Prefix%E3%80%81Postfix-%E6%80%9D%E8%B7%AF"><span class="nav-text">3. Prefix、Postfix 思路</span></a></li></ol></li></ol></li></ol>
 
     </div>
 </div>
