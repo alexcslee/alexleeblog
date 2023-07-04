@@ -1599,6 +1599,8 @@ pre code {
   border: none;
   margin: 0;
   padding: 10px 0;
+  white-space: pre-wrap !important;
+  word-break: break-word;
 }
 .highlight table {
   margin: 0;
@@ -1629,6 +1631,7 @@ pre code {
   color: var(--highlight-gutter-color);
   text-align: center;
   background-color: var(--highlight-gutter-bg-color);
+  display: none;
 }
 .highlight .code pre {
   width: 100%;
